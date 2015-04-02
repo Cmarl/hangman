@@ -33,43 +33,41 @@ function newGame(){
 }
 
 $(document).ready(function(){
-  newGame(); //start new game on page load
+  newGame();
 
-  $(window).keypress(function(event){ //listen on keyboard
+  $(window).keypress(function(event){
     var ascii = event.which;
     var char = String.fromCharCode(ascii);
 
     if ((ascii >= 97 && ascii <= 122)&&(guesses.indexOf(char) === -1)){
-      $('#'+char).parent().addClass("list-group-item-danger");         //turn letter red
-      guesses.push(char);                                          //remember this guess
+      $('#'+char).parent().addClass("list-group-item-danger");
+      guesses.push(char);
 
-      if (word.indexOf(char) > -1){                      //check word for letter guessed
-        var charI = [];                                     //save i's of guessed letter
+      if (word.indexOf(char) > -1){
+        var charI = [];
         for(var i=0;i<word.length;i++){if (word[i] === char){charI.push(i);}}
-        charI.forEach(function(i){hidden[i] = char;});       //replace dashes with guess
-        $('#current').text(hidden.join(""));              // update text shown with same
+        charI.forEach(function(i){hidden[i] = char;});
+        $('#current').text(hidden.join(""));
 
-        if (word === hidden.join("")){                                   //check for win
+        if (word === hidden.join("")){
           window.confirm("You Win!!!");
-          $('#game-area').velocity({rotateX:360});
-          //only works on first spin, tried clearing classes, clearing style
-          // and also tried hiding and un-hiding div..,
-          // same issue with when using animate and css functions..
+          $('#game-area').velocity({rotateX:180},{duration:250}).velocity('reverse');
           newGame();
         }
-      } else if (word.indexOf(char) === -1){                           //incorrect guess
-          $('#imgs').children().addClass('hide');                          //hide frames
+      } else if (word.indexOf(char) === -1){
+          $('#imgs').children().addClass('hide');
           showing += 1;
-          $('#'+showing).removeClass('hide');                          //show next frame
+          $('#'+showing).removeClass('hide');
 
-          if (showing >= 6){                                            //check for loss
+          if (showing >= 6){
             window.confirm("you lose! this word was: " + word);
-            $('#game-area').slideUp(function(){$('#game-area').slideDown()})   //animate
+            $('#game-area').slideUp(function(){$('#game-area').slideDown()})
             newGame();
           }
       }
     } else {$('#game-area').fadeOut(25,function(){$('#game-area').fadeIn(25)})};
   });
+
   $('#newgame').click(function(){
     newGame();
   });

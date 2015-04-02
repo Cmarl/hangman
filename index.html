@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Play Hangman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js"></script>
+  <script src="jquery.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <h2 class="text-center"><samp><b>Hangman</b></samp>
+      <small><samp> Guess correctly for the stick man's sake</samp></small>
+    </h2>
+  </nav>
+  <div class="container">
+    <div class="panel panel-info" id="game-area">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <a href="#" data-toggle="tooltip" title="Enter each guess using the keyboard,
+             letters you've already tried will turn red below. too many incorrect guesses and it's game over.
+             click New Game to try a different word at any time.">
+              <h3><span class="glyphicon glyphicon-question-sign"></span></h3>
+            </a>
+          </div>
+          <div class="col-xs-6 text-center">
+            <h2 class="text-center" id="current" style="letter-spacing:2px">~~~~~</h2>
+          </div>
+          <div class="col-xs-3 text-right" id="button">
+            <br>
+            <button class="btn btn-success" id="newgame">
+              <span class="glyphicon glyphicon-repeat"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body list-group-item list-group-item-success" id="letter-chart">
+        <div class="row">
+          <div class="col-xs-1 col-xs-offset-2 list-group-item text-center" id="one"><b id="a">A</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="b">B</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="c">C</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="d">D</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="e">E</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="f">F</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="g">G</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="h">H</b></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-xs-offset-2 list-group-item text-center"><b id="i">I</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="j">J</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="k">K</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="l">L</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="m">M</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="n">N</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="o">O</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="p">P</b></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-1 col-xs-offset-1 list-group-item text-center"><b id="q">Q</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="r">R</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="s">S</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="t">T</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="u">U</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="v">V</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="w">W</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="x">X</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="y">Y</b></div>
+          <div class="col-xs-1 list-group-item text-center"><b id="z">Z</b></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" id="imgs">
+          <img class="img img-responsive" id="0" src="http://s6.postimg.org/5ul180t4h/frame.png">
+          <img class="img img-responsive hide" id="1" src="http://s6.postimg.org/5f9rf0775/head.png">
+          <img class="img img-responsive hide" id="2" src="http://s6.postimg.org/yf45uzptd/body.png">
+          <img class="img img-responsive hide" id="3" src="http://s6.postimg.org/f13bvaycx/arm.png">
+          <img class="img img-responsive hide" id="4" src="http://s6.postimg.org/7srp60lm9/both_arms.png">
+          <img class="img img-responsive hide" id="5" src="http://s6.postimg.org/sxbk76ult/leg.png">
+          <img class="img img-responsive hide" id="6" src="http://s6.postimg.org/75ssghoq9/end.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

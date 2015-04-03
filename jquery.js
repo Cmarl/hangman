@@ -46,29 +46,29 @@ $(document).ready(function(){
       if (word.indexOf(char) > -1){
         var charI = [];
         for(var i=0;i<word.length;i++){if (word[i] === char){charI.push(i);}}
-        charI.forEach(function(i){hidden[i] = char;});
-        $('#current').text(hidden.join(""));
+          charI.forEach(function(i){hidden[i] = char;});
+          $('#current').text(hidden.join(""));
 
-        if (word === hidden.join("")){
-          window.confirm("You Win!!!");
-          $('#game-area').velocity({rotateX:180},{duration:250}).velocity('reverse');
-          newGame();
-        }
-      } else if (word.indexOf(char) === -1){
+          if (word === hidden.join("")){
+            window.confirm("You Win!!!");
+            $('#game-area').velocity({rotateX:180},{duration:250}).velocity('reverse');
+            newGame();
+          }
+        } else if (word.indexOf(char) === -1){
           $('#imgs').children().addClass('hide');
           showing += 1;
           $('#'+showing).removeClass('hide');
 
           if (showing >= 6){
             window.confirm("you lose! this word was: " + word);
-            $('#game-area').slideUp(function(){$('#game-area').slideDown()})
+            $('#game-area').slideUp(function(){$('#game-area').slideDown();});
             newGame();
           }
-      }
-    } else {$('#game-area').fadeOut(25,function(){$('#game-area').fadeIn(25)})};
-  });
+        }
+      } else {$('#game-area').fadeOut(25,function(){$('#game-area').fadeIn(25);});}
+      });
 
-  $('#newgame').click(function(){
-    newGame();
-  });
-});
+      $('#newgame').click(function(){
+        newGame();
+      });
+    });
